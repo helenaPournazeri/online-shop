@@ -1,0 +1,52 @@
+.header {
+    width: 100%;
+    margin:0 10px 60px;
+    background-color: #fe5d42;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+.header a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    
+}
+.header div {
+    font-size: 1.6rem;
+    background-color: #fff;
+    text-align: center;
+    color: #fe5d42;
+    height: 35px;
+    width: 35px;
+    border-radius: 9px;
+    padding: 2px;
+    position: relative;
+}
+.header span {
+    background-color: #000;
+    color: #fff;
+    font-size: 0.9rem;
+    width: 20px;
+    text-align: center;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    font-size: 12px;
+}
+.footer {
+    background-color: #fe5d42;
+    text-align: center;
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px 0;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.1rem;
+}

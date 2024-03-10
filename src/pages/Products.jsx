@@ -1,10 +1,50 @@
-import axios from "axios"
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import Card from "../components/Card";
+import Loader from "../components/Loader";
+import { useProducts } from "../context/ProductContext"
+import { filterProduct, getInitialQuery, searchProduct} from "../helpers/helper";
+import styles from "../pages/products.module.css"
+import SearchBox from "../components/SearchBox";
+import Sidebar from "../components/Sidebar";
+
 
 function Products() {
-  axios.get("https://fakestoreapi.com/products").then(res => console.log(res.data))
+  const [search, setSearch] = useState("")
+  const [list, setList] = useState([]);
+  const [query, setQuery] = useState({});
+  const [searchParams, setSearchParams] = useSearchParams()
+  const products = useProducts();
+
+
+
+  useEffect(()=>{
+    setList(products)
+    setQuery(getInitialQuery(searchParams))
+    
+  },[products] )
+  
+  useEffect(()=>{
+    setSearchParams(query)
+    setSearch(query.search || "")
+    let finalProducts= searchProduct(products, query.search);
+    finalProducts = filterProduct(finalProducts, query.category)
+    setList(finalProducts)
+
+  },[query])
+  
   return (
     <>
-    <h1>Products</h1>
+    <SearchBox setQuery={setQuery} search={search} setSearch={setSearch} />
+    <div className={styles.container}>
+
+      <div className={styles.products}>
+        {!list.length && <Loader />}
+        {list.map(product => <Card key={product.id} product={product} />)}
+      </div>
+      <Sidebar setQuery={setQuery} query={query} />
+
+    </div>
     </>
   )
 }

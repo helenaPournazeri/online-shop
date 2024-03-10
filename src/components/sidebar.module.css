@@ -1,0 +1,41 @@
+.sidebar {
+    width: 220px;
+    background-color: #fff;
+    border: 1px dashed #e2e2e2;
+    height: fit-content;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 20px;
+    margin-left: 20px;
+    position: fixed;
+    left: 1000px;
+}
+.sidebar .title {
+    display: flex;
+    align-items: center;
+    color: #fe5d42;
+}
+.title p {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.icon {
+    margin-right: 5px;
+}
+
+
+.sidebar ul li {
+    list-style: none;
+    margin-top: 5px;
+    padding: 5px 5px 5px 10px;
+    cursor: pointer;
+}
+.sidebar li:hover {
+    color: #fe5d42;
+}
+
+.selected {
+    background-color: #f7753d49;
+    color: #fe5d42;
+    border-radius: 10px;
+}
